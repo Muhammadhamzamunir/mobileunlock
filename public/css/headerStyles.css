@@ -1,6 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
-
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
@@ -8,9 +8,8 @@
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --black-color: hsl(220, 24%, 12%);
-  --black-color-light: hsl(220, 24%, 15%);
-  --black-color-lighten: hsl(220, 20%, 18%);
-  --white-color: #fff;
+  --white-color: hsl(225, 15%, 95%);
+  --black-color-light: hsl(220, 3%, 20%);
   --body-color: hsl(220, 100%, 97%);
 
   /*========== Font and typography ==========*/
@@ -21,12 +20,115 @@
   /*========== Font weight ==========*/
   --font-regular: 400;
   --font-semi-bold: 600;
-
+  --pink-color: #ee0979;
+  --pink-color:rgb(3, 168, 78);
+  --blue-color:#3c8adf;
   /*========== z index ==========*/
-  --z-tooltip: 10;
-  --z-fixed: 100;
+  /* --z-tooltip: 10;
+  --z-fixed: 100; */
+}
+/* Inputs */
+.container.center-form input[type="radio"],
+.container.center-form input[type="checkbox"] {
+    margin-right: 5px; 
+    width: auto; 
 }
 
+.container.center-form label {
+    
+    font-size: 16px;
+    color: #2C3E50;
+    display: flex;
+    align-items: center;
+}
+
+.container.center-form input[type="radio"] + label,
+.container.center-form input[type="checkbox"] + label {
+   
+    margin-left: 5px; 
+}
+
+.container.center-form input,
+.container.center-form textarea,select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+.container.center-form input:focus,
+.container.center-form textarea:focus, select:focus{
+    border: 1px solid var(--pink-color);
+    outline-width: 0;
+    transition: all 0.5s ease-in;
+}
+
+
+/* Form styles */
+.container.center-form {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+
+
+/* Buttons */
+ .btn {
+    width: 90px;
+    
+    font-weight: bold !important;
+    color: white !important;
+    border: 0 none !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    padding: 10px 5px !important;
+    margin: 10px 5px !important;
+    
+}
+.btn-primary{
+  background:var(--pink-color) !important;
+}
+.btn-primary:hover{
+  background-color: #98054a !important ;
+  
+}
+.subheading{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--pink-color);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+/* Headings */
+.mainheading {
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    color: var(--pink-color);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-center{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
   :root {
@@ -45,16 +147,16 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
+  overflow-x: hidden;
 }
 
 ul {
   list-style: none;
-  /* Color highlighting when pressed on mobile devices */
-  /*-webkit-tap-highlight-color: transparent;*/
+  
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none  !important;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -64,13 +166,13 @@ a {
 }
 /*=============== Top Bar Media Links ===============*/
 .media-links-container{
-  background-color: var(--black-color);
+  background-color: var(--white-color);
   color: white;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 2rem;
-  color: lightgray;
+  /* color:var(--black-white); */
 }
 .media-link-content{
   width: 100%;
@@ -83,9 +185,9 @@ a {
   top: 0;
   left: 0; */
   width: 100%;
-  background-color: var(--black-color);
-  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
-  z-index: var(--z-fixed);
+  background-color: var(--white-color);
+  /* box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3); */
+  z-index: 10;
 }
 
 /*=============== NAV ===============*/
@@ -96,13 +198,13 @@ a {
 .nav__logo, 
 .nav__burger, 
 .nav__close {
-  color: var(--white-color);
+  color: var(--black-color);
 }
 
 .nav__data {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
   align-items: center;
 }
 
@@ -144,6 +246,9 @@ a {
 
 /* Navigation for mobile devices */
 @media screen and (max-width: 1118px) {
+  .container{
+    padding: 25px !important;
+  }
   .nav__menu {
     position: absolute;
     left: 0;
@@ -154,35 +259,47 @@ a {
     pointer-events: none;
     opacity: 0;
     transition: top .4s, opacity .3s;
+    z-index: 2;
   }
   .nav__menu::-webkit-scrollbar {
     width: 0;
   }
   .nav__list {
-    background-color: var(--black-color);
+    background-color: var(--white-color);
     padding-top: 1rem;
   }
 }
-
+.semiBold{
+  font-weight: var(--font-semi-bold);
+}
 .nav__link {
-  color: var(--white-color);
-  background-color: var(--black-color);
+  color: var(--black-color);
+  background-color: var(--white-color) !important;
   font-weight: var(--font-semi-bold);
   padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background-color .3s;
+  
 }
-
+.nav__link__button {
+  
+  /* padding: 0.25rem 0.5rem; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: center;
+  
+}
 .nav__link:hover {
-  background-color: var(--black-color-light);
+  background-color: var(--white-light) ;
 }
 
 /* Show menu */
 .show-menu {
   opacity: 1;
-  top: 5.5rem;
+  top: 4.5rem;
   pointer-events: initial;
 }
 
@@ -199,6 +316,7 @@ a {
 /*=============== DROPDOWN ===============*/
 .dropdown__item {
   cursor: pointer;
+  z-index: 999;
 }
 
 .dropdown__arrow {
@@ -210,8 +328,8 @@ a {
 .dropdown__link, 
 .dropdown__sublink {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
-  color: var(--white-color);
-  background-color: var(--black-color-light);
+  color: var(--black-color);
+  background-color:var(--white-color) !important;
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -227,7 +345,7 @@ a {
 
 .dropdown__link:hover, 
 .dropdown__sublink:hover {
-  background-color: var(--black-color);
+  background-color: rgb(211, 206, 206) !important;
 }
 
 .dropdown__menu, 
@@ -242,6 +360,7 @@ a {
 .dropdown__subitem:hover > .dropdown__submenu {
   max-height: 1000px;
   transition: max-height .4s ease-in;
+  
 }
 
 /* Rotate dropdown icon */
@@ -258,6 +377,89 @@ a {
   background-color: var(--black-color-lighten);
 }
 
+.brand-logo  {
+  mix-blend-mode: darken; 
+}
+
+
+.media-icon{
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 999;
+}
+.media-icon a {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--pink-color); /* Customize the background color */
+      color: white; /* Customize the icon color */
+      font-size: 20px;
+      margin: 10px;
+      margin-left: 2px;
+      text-decoration: none;
+  }
+
+.footer {
+  color: white !important;
+}
+.footer a{
+  color: white !important;
+}
+
+.card{
+  border-radius: 30px;
+  border-color: var(--pink-color) !important;
+  /* box-shadow: var(--pink-color) 2px 2px 10px 1px; */
+  transform: translateY(10px);
+}
+.card-body{
+  padding: 25px;
+  /* margin-top: -15px; */
+}
+.btn-sm{
+  padding: 6px 3px   !important;
+  width: 70px !important;
+  font-size: 13px !important;
+  border-radius: 10px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 340px) {
@@ -268,6 +470,8 @@ a {
   .nav__link {
     padding-inline: 1rem;
   }
+  
+ 
 }
 
 /* For large devices */
@@ -310,7 +514,7 @@ a {
     overflow: initial;
     position: absolute;
     left: 0;
-    top: 6rem;
+    /* top: 4rem; */
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s, top .3s;
@@ -318,7 +522,7 @@ a {
 
   .dropdown__link, 
   .dropdown__sublink {
-    padding-inline: 1rem 3.5rem;
+    padding-inline: 1rem 2.5rem;
   }
 
   .dropdown__subitem .dropdown__link {
@@ -337,6 +541,7 @@ a {
     top: 5.5rem;
     pointer-events: initial;
     transition: top .3s;
+    width: 14.5rem;
   }
 
   /* Show dropdown submenu */
@@ -346,4 +551,6 @@ a {
     pointer-events: initial;
     transition: top .3s;
   }
+
+
 }
